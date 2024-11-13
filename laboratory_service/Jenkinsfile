@@ -17,7 +17,7 @@ pipeline {
         stage('Checkout Frontend') {
             steps {
                 // Checkout frontend from main
-                dir('./front-end') {
+                dir('./Laboratory_Management') {
                     git branch: 'master', url: 'https://github.com/MounaEttalbi/Laboratory_Management.git'
                 }
             }
@@ -52,7 +52,7 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 dir('./laboratory_service') { // Changez ici pour accéder au dossier où se trouve docker-compose.yml
-                    bat 'docker-compose -f laboratory_service/docker-compose.yml up --build -d' // Chemin relatif vers docker-compose.yml
+                    bat 'docker-compose -f docker-compose.yml up --build -d' // Chemin relatif vers docker-compose.yml
                 }
             }
         }
