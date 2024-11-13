@@ -1,5 +1,20 @@
 package com.app.backend.service;
 
-public class LaboratoryService {
+import java.util.List;
+import java.util.Optional;
 
+import com.app.backend.dto.LaboratoryDTO;
+import com.app.backend.entities.Laboratory;
+
+public interface LaboratoryService {
+
+    Laboratory addLaboratory(LaboratoryDTO laboratoryDTO);
+
+    Laboratory updateLaboratory(Long id, LaboratoryDTO laboratoryDTO);
+
+    List<Laboratory> getAllLaboratories();
+
+    Optional<Laboratory> getLaboratoryById(long id);
+
+    void deleteLaboratory(Long id);
 }
