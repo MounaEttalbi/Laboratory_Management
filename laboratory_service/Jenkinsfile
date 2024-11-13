@@ -51,11 +51,12 @@ pipeline {
         // Deploy using Docker Compose
         stage('Deploy with Docker Compose') {
             steps {
-                dir('./laboratory_service') { // Ajout de dir pour Docker Compose
-                    bat 'docker-compose -f docker-compose.yml up --build -d' // Utiliser 'sh' si sous Linux
+                dir('./laboratory_service') { // Changez ici pour accéder au dossier où se trouve docker-compose.yml
+                    bat 'docker-compose -f laboratory_service/docker-compose.yml up --build -d' // Chemin relatif vers docker-compose.yml
                 }
             }
         }
+
         stage('SonarQube Analysis') {
             environment {
                 SONARQUBE_TOKEN = credentials('projet-libre-sonar-token') // Remplacez par votre ID d'identifiant
@@ -63,7 +64,7 @@ pipeline {
             steps {
                 script {
                     // Change directory to where the pom.xml is located
-            dir('./ProjetLibre') {
+            dir('./laboratory_service') {
                     // Exécutez l'analyse SonarQube
                     bat "mvn clean verify sonar:sonar \
   -Dsonar.projectKey=sonar-jenkins \
