@@ -8,17 +8,17 @@ pipeline {
         stage('Checkout Backend') {
             steps {
                 // Checkout backend from main
-                dir('./laboratory_service') {
-                    git branch: 'main', url: 'https://github.com/MounaEttalbi/Laboratory_Management.git'
-                }
+                //dir('./laboratory_service') {
+                    git branch: 'main', url: 'https://github.com/MounaEttalbi/Laboratory_Management/laboratory_service.git'
+
             }
         }
 
         stage('Checkout Frontend') {
             steps {
                 // Checkout frontend from main
-                dir('./Laboratory_Management') {
-                    git branch: 'master', url: 'https://github.com/MounaEttalbi/Laboratory_Management.git'
+                dir('./front-end') {
+                    git branch: 'master', url: 'https://github.com/MounaEttalbi/Laboratory_Management.git';
                 }
             }
         }
