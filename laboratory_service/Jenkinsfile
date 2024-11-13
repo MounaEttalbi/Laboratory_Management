@@ -35,7 +35,7 @@ pipeline {
         // Frontend Build & Test stage
         /*stage('Build & Test Frontend') {
             steps {
-                dir('./gestion-de-laboratoire') {
+                dir('./front-end') {
                     // Install npm packages
                     bat 'npm install' // Utiliser 'sh' si sous Linux
                     // Run Angular build
