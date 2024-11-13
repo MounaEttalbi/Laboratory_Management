@@ -1,12 +1,12 @@
 services:
   backend:
-    build: ./ProjetLibre
+    build: ./laboratory_service
     ports:
       - "8080:8080" # Port pour le backend
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/ProjetLibre
-      SPRING_DATASOURCE_USERNAME: ProjetLibre
-      SPRING_DATASOURCE_PASSWORD: ProjetLibre
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/laboratory_service
+      SPRING_DATASOURCE_USERNAME: laboratory_service
+      SPRING_DATASOURCE_PASSWORD: laboratory_service
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
       db:
@@ -15,7 +15,7 @@ services:
       - app-network
 
   frontend:
-    build: ../gestion-de-laboratoire
+    build: ./front-end
     ports:
       - "4200:80" # Port pour le frontend
     networks:
@@ -27,14 +27,14 @@ services:
     ports:
       - "3306:3306" # Port pour la base de données
     environment:
-      MYSQL_ROOT_PASSWORD: ProjetLibre
-      MYSQL_DATABASE: ProjetLibre
-      MYSQL_USER: ProjetLibre
-      MYSQL_PASSWORD: ProjetLibre
+      MYSQL_ROOT_PASSWORD: laboratory_service
+      MYSQL_DATABASE: laboratory_service
+      MYSQL_USER: laboratory_service
+      MYSQL_PASSWORD: laboratory_service
     volumes:
       - db_data:/var/lib/mysql # Persister les données MySQL dans un volume
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pProjetLibre"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-laboratory_service"]
       interval: 10s
       timeout: 5s
       retries: 5
