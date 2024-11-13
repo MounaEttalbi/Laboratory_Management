@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Checkout du backend à partir de la branche main
                 dir('./laboratory_service') {
-                    git branch: 'main', url: 'https://github.com/MounaEttalbi/Laboratory_Management/laboratory_service.git'
+                    git branch: 'main', url: 'https://github.com/MounaEttalbi/Laboratory_Management.git'
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 dir('./laboratory_service') {
                     // Exécution du build Maven
-                    sh 'mvn clean install' // Utilisez 'bat' si sous Windows
+                    bat 'mvn clean install' // Utilisez 'bat' si sous Windows
                 }
             }
         }
