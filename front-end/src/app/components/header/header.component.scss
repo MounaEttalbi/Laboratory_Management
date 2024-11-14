@@ -7,8 +7,16 @@
   color: white;
 
   .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background-image: url('../../../assets/logo2.png');  /* Le chemin correct vers votre image */
+    background-size: contain;  /* Ajuste la taille de l'image */
+    background-repeat: no-repeat;
+    background-position: center;  /* Positionne l'image au centre */
+    height: 160px;  /* Ajustez la taille du logo */
+    width: 190px;  /* Ajustez la largeur selon vos besoins */
+    margin-bottom: -40px;
+    margin-top: -55px;
   }
 
   .nav-links {
