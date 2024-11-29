@@ -1,0 +1,61 @@
+.edit-laboratory-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  
+  .edit-laboratory-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* Taille réduite du texte */
+    font-weight: bold;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block; /* Chaque label sur une nouvelle ligne */
+    font-weight: bold;
+  }
+  
+  input,
+  select,
+  button {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 90%; /* Largeur maximale */
+  }
+  .actions {
+    display: flex; /* Permet d'afficher les boutons côte à côte */
+    justify-content: space-between; /* Ajoute un espace égal entre les boutons */
+  }
+  button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1; /* Permet aux boutons de prendre la même largeur */
+  margin: 0 20px; /* Ajoute un espace horizontal entre les boutons */
+  }
+  .action-save{
+    background-color: #4caf50;
+  }
+  .action-cancel{
+    background-color: rgb(221, 1, 1);
+  }
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
