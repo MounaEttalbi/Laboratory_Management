@@ -13,7 +13,7 @@ public class GatewayServiceApplication {
 	
 	/*
 	 * //Configuration dynamic of routes example :
-	 * http://localhost:8088/USER_SERVICE/user/all
+	 * http://localhost:8888/USER_SERVICE/user/all
 	 * 
 	 * @Bean DiscoveryClientRouteDefinitionLocator locator(ReactiveDiscoveryClient
 	 * rdc,DiscoveryLocatorProperties dlp) { return new

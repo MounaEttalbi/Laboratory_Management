@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 @Entity
 public class User {
 	@Id
+	private String cin;
 	private String email;
 	private String nomComplet;
 	private String numTel;
@@ -19,8 +20,26 @@ public class User {
 
 	@Transient
 	private Laboratory laboratoire;
-
 	private Long fkIdLaboratoire;
+
+	@OneToOne
+	private Login login;
+
+	public Login getLogin() {
+		return login;
+	}
+
+	public String getCin() {
+		return cin;
+	}
+
+	public void setCin(String cin) {
+		this.cin = cin;
+	}
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
 
 	public User() {
 		super();

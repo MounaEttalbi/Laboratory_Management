@@ -14,6 +14,10 @@ public class ServiceImpl implements LaboratoryService {
 
     private LaboratoryRepository laboratoryRepository;
 
+    public ServiceImpl(LaboratoryRepository laboratoryRepository) {
+        this.laboratoryRepository = laboratoryRepository;
+    }
+
     @Override
     public Laboratory addLaboratory(LaboratoryDTO laboratoryDTO) {
         // Convertir le DTO en entité et l'ajouter à la base de données
@@ -33,7 +37,7 @@ public class ServiceImpl implements LaboratoryService {
             laboratoryToUpdate.setDateActivation(laboratoryDTO.getDateActivation());
             return laboratoryRepository.save(laboratoryToUpdate);
         }
-        return null; // ou lancez une exception si le laboratoire n'existe pas
+        return null;
     }
 
     @Override

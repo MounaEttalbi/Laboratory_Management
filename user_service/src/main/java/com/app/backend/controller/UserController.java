@@ -2,40 +2,37 @@ package com.app.backend.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.app.backend.dtos.InscriptionUtilisateur;
+import com.app.backend.dtos.UtilisateurDto;
+import com.app.backend.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import com.app.backend.repository.UserRepository;
 import com.app.backend.client.LaboratoryRestClient;
 import com.app.backend.entities.User;
 import com.app.backend.model.Laboratory;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/user")
 public class UserController {
-	
-	
-	private UserRepository userRepository;
-	private LaboratoryRestClient laboratoryRestClient;
-	
+	@Autowired
+	LaboratoryRestClient laboratoireRestClient;
+	@Autowired
+	UserService utilisateurService;
 
-	public UserController (UserRepository userRepository ,LaboratoryRestClient laboratoryRestClient) {
-		this.userRepository = userRepository;
-		this.laboratoryRestClient =laboratoryRestClient;
+	@GetMapping("labo")
+	public List<Laboratory> accountList(){
+		System.out.println("labusr");
+		return laboratoireRestClient.allLaboratory();
 	}
-
-	@GetMapping("/all")
-	public List<User> getAllUsers(){
-		return userRepository.findAll();
+	@GetMapping("utilisateurs")
+	public List<UtilisateurDto> getAllUtilisateurs(){
+		System.out.println("labusr");
+		return utilisateurService.getAllUtilisateurs();
 	}
-	
-	@GetMapping("/{id}")
-	public User getUserById(@PathVariable String id) {
-		User user= userRepository.findById(id).get();
-		Laboratory laboratory = laboratoryRestClient.findLaboratoryById(user.getFkIdLaboratoire());
-		user.setLaboratoire(laboratory);
-		return user;
+	@PostMapping("/ajouUtilisateur")
+	public void ajouUtilisateur(@RequestBody InscriptionUtilisateur inscription) {
+		utilisateurService.ajouterUtilisateur(inscription);
 	}
 }

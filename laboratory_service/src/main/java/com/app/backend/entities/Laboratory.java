@@ -1,6 +1,8 @@
 package com.app.backend.entities;
 
 import jakarta.persistence.*;
+
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -72,10 +74,16 @@ public class Laboratory {
 	public void setDateActivation(Date dateActivation) {
 		this.dateActivation = dateActivation;
 	}
-	
-    
-    
 
-    
-    
+	@Override
+	public String toString() {
+		return "Laboratory{" +
+				"id=" + id +
+				", nom='" + nom + '\'' +
+				", logo=" + Arrays.toString(logo) +
+				", nrc=" + nrc +
+				", statut=" + statut +
+				", dateActivation=" + dateActivation +
+				'}';
+	}
 }

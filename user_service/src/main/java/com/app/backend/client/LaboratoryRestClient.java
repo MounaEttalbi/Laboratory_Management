@@ -27,7 +27,7 @@ public interface LaboratoryRestClient {
 		labo.setNrc(null);
 		return labo;
 	}
-	//comment
+
 	default List<Laboratory> getDefaultAllLaboratory(Exception exception){
 		return List.of();
 	}

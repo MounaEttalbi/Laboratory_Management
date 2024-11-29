@@ -38,24 +38,17 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Lombok pour éviter d’écrire les getter/setter -->
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Spring Boot Starter Web (inclut ResponseEntity et Spring MVC) -->
+		<!-- Spring Boot Starter Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<!-- Spring Boot Starter Test -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<!-- Spring Cloud Dependencies -->
@@ -78,12 +71,56 @@
 			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 		</dependency>
 
-		<!-- SpringDoc OpenAPI pour Swagger UI -->
+		<!-- SpringDoc OpenAPI for Swagger UI -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.6.0</version>
 		</dependency>
+
+		<!-- Spring Cloud Config Client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+			<!-- JUnit 5 -->
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>5.9.0</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- Mockito -->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>5.0.0</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- Mockito JUnit 5 Integration -->
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-junit-jupiter</artifactId>
+				<version>5.0.0</version>
+				<scope>test</scope>
+			</dependency>
+
+			<!-- Spring Boot Test (if using Spring Boot) -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<scope>test</scope>
+			</dependency>
+
+
+
 	</dependencies>
 
 	<dependencyManagement>
